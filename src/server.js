@@ -34,16 +34,49 @@ const proffys = [
    }
 ]
 
+const subjects = [
+   "Artes",
+   "Biologia",
+   "Ciências",
+   "Educação física",
+   "Física",
+   "Geografia",
+   "História",
+   "Matemática",
+   "Português",
+   "Química",
+]
+
+const weekdays = [
+   "Domingo",
+   "Segunda-feira",
+   "Terça-feira",
+   "Quarta-feira",
+   "Quinta-feira",
+   "Sexta-feira",
+   "Sábado",
+]  
+
 function pageLanding(req, res) {
    return res.render("index.html")
 }
 
 function pageStudy(req, res) {
-   return res.render("study.html", { proffys})
+   const filters = req.query
+   return res.render("study.html", { proffys, filters, subjects, weekdays })
 }
 
 function pageGiveClasses(req, res) {
-   return res.render("give-classes.html")
+   const data = req.query
+
+   const isNotEmpty = Object.keys(data).length > 0
+   if (isNotEmpty) {
+      proffys.push(data)
+
+      return res.redirect("/study")
+   }
+
+   return res.render("give-classes.html", { subjects, weekdays })
 }
 
 const express = require('express')
