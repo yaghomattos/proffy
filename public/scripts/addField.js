@@ -1,14 +1,15 @@
-document.querySelector("#add-time")
-.addEventListener('click', cloneField)
+document.querySelector("#add-time").addEventListener("click", cloneField);
 
 function cloneField() {
-  const newFieldContainer = document.querySelector('.schedule-item').cloneNode(true)
-  
-  const fields = newFieldContainer.querySelectorAll('input')
+  const newFieldContainer = document
+    .querySelector(".schedule-item")
+    .cloneNode(true);
 
-  fields.forEach(function(field) {
-    field.value = ""
-  })
+  const fields = newFieldContainer.querySelectorAll("input");
 
-  document.querySelector('#schedule-items').appendChild(newFieldContainer)
+  fields.forEach(function (field) {
+    field.value = "";
+  });
+
+  document.querySelector("#schedule-items").appendChild(newFieldContainer);
 }

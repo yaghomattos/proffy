@@ -1,4 +1,4 @@
-const Database = require('sqlite-async')
+const Database = require("sqlite-async");
 
 function execute(db) {
   return db.exec(`
@@ -24,7 +24,7 @@ function execute(db) {
       time_from INTEGER,
       time_to INTEGER
     );
-  `)
+  `);
 }
 
-module.exports = Database.open(__dirname + '/database.sqlite').then(execute)
+module.exports = Database.open(__dirname + "/database.sqlite").then(execute);
